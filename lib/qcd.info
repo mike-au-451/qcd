@@ -1,0 +1,5 @@
+sek~/home/mike/Documents/Sekrets~
+
+play~~find /home/mike/Play -type d | grep -P 'Play/\d{4}/\d{2}/\d{8}_\d{2}$' | sort -r | head -1
+work~~find /home/mike/Work/* -maxdepth 1 -type d -printf '%T+ %p\n' | sort -r | head -1 | cut -d' ' -f2
+
