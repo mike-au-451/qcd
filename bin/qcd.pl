@@ -102,6 +102,7 @@ if (1 != @matches) {
 
 my $matched = $matches[0];
 my $stem = join("/", @elems);
+$stem = "/$stem" if $stem ne "";
 
 @elems = split(/~/, $matched, -1);
 if (scalar @elems < 3) {
@@ -122,11 +123,10 @@ if ($elems[2] ne "") {
 		# then clean up the temp file.
 		print $elems[$ix] . "\n";
 	}
-	print trim(qx($elems[$ix])) . "\n";
+	print trim(qx($elems[$ix])) . $stem . "\n";
 }
 else {
 	$root = $elems[1];
-	$stem = "/$stem" if $stem ne "";
 	print "$root$stem\n";
 }
 
